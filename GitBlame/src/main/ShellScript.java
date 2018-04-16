@@ -66,7 +66,7 @@ public class ShellScript {
 			String[] cmd = { "/bin/sh", "-c", "cd " + dir.toString() + "; git blame -l " + file.getCanonicalFile() };
 //git blame -l -c  --date=iso --pretty=format:'"%h","%an","%ad","%s"' FileSystemCrawler.java > t.csv
 			//--date=iso --pretty=format:'"%h","%an","%ad","%s"'
-			// Process process = Runtime.getRuntime().exec(cmd);
+			// Process process = Runtime.getRuntime().exec(cmd);  teste
 			process = Runtime.getRuntime().exec(cmd);
 
 			BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
