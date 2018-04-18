@@ -47,7 +47,7 @@ public class CopyFIles {
 
 	private static void calc(File arq) throws IOException {
 		File dir = new File(arq + "/");
-		String[] extensions = new String[] {"txt"};
+		String[] extensions = new String[] {"csv"};
 
 		List<File> files = (List<File>) FileUtils.listFiles(dir, extensions, true);
 		
@@ -57,7 +57,7 @@ public class CopyFIles {
 		
 		
 		for (File file : files) {
-		 if(file.getName().endsWith("_output.txt")) {
+		 if(file.getName().endsWith("_output.csv")) {
 			 File fileac = new File(file.getAbsolutePath());
 			 System.out.println(fileac+" "+destinationDir);
 			 FileUtils.copyFileToDirectory(fileac, destinationDir);

@@ -44,8 +44,8 @@ public class ShellScript {
 						// System.out.println(i + 1 + " | " + length);
 
 						// path = f.getAbsolutePath();
-						fw = new FileWriter(f.getAbsoluteFile() + "/" + f.getName() + "_output.txt");
-						System.out.println("Save in " + f.getAbsoluteFile() + "/" + f.getName() + ".txt");
+						fw = new FileWriter(f.getAbsoluteFile() + "/" + f.getName() + "_output.csv");
+						System.out.println("Save in " + f.getAbsoluteFile() + "/" + f.getName() + ".csv");
 						bw = new BufferedWriter(fw);
 						calc(f, bw, fw);
 					}
@@ -63,7 +63,9 @@ public class ShellScript {
 		List<File> files = (List<File>) FileUtils.listFiles(dir, extensions, true);
 		for (File file : files) {
 			System.out.println("file: " + file.getCanonicalPath());
-			String[] cmd = { "/bin/sh", "-c", "cd " + dir.toString() + "; git blame -l " + file.getCanonicalFile() };
+			//String[] cmd = { "/bin/sh", "-c", "cd " + dir.toString() + "; git blame -l " + file.getCanonicalFile() };
+			
+			String[] cmd = { "/bin/sh", "-c", "cd " + dir.toString() + "; git blame -l -c --date=iso --pretty=format:'\"%h\",\"%an\",\"%ad\",\"%s\"' " + file.getCanonicalFile() };
 			//git blame -l -c  --date=iso --pretty=format:'"%h","%an","%ad","%s"' FileSystemCrawler.java > t.csv
 			//--date=iso --pretty=format:'"%h","%an","%ad","%s"'
 			// Process process = Runtime.getRuntime().exec(cmd);  teste
