@@ -52,7 +52,7 @@ public class CopyFIles {
 		List<File> files = (List<File>) FileUtils.listFiles(dir, extensions, true);
 		
 		
-		File destinationDir = new File("/home/johnatan/output/");
+		File destinationDir = new File("/home/johnatan/output-brute/");
 
 		
 		
