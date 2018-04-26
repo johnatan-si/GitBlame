@@ -17,7 +17,7 @@ public class CSVReader {
 
 	public static void main(String[] args) throws SQLException {
 
-		String csvFile = "/home/johnatan/commits.csv";
+		String csvFile = "/home/johnatan/scam/output-withoutComments/abixen-platform-71328643_output.csv";
 		BufferedReader br = null;
 		String line = "";
 		String cvsSplitBy = "	";
@@ -33,7 +33,7 @@ public class CSVReader {
 				String[] country = line.split(cvsSplitBy);
 
 				// the mysql insert statement
-				String query = " insert into commit (codeCommit, name, date, code)" + " values (?, ?, ?, ?)";
+				String query = " INSERT INTO commit (codeCommit, name, date, sourceCode)" + " values (?, ?, ?, ?)";
 
 				// create the mysql insert preparedstatement
 				PreparedStatement preparedStatement = conn.prepareStatement(query);
@@ -43,7 +43,7 @@ public class CSVReader {
 				preparedStatement.setString(4, country[3].replaceAll("[()]", "").replaceAll("[0-9]",""));
 
 				// execute the preparedstatement
-				//preparedStatement.execute();
+				preparedStatement.execute();
 
 			//	System.out.println(" [codeCommit= " + country[0] + " , name=" + country[1] + ", date=" + country[2]	+ ", code=" + country[3] + "]");
 				String replaced = country[1].replaceAll("[()]", "");

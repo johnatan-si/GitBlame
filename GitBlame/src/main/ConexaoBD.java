@@ -16,7 +16,8 @@ public class ConexaoBD {
 		Connection conn = null; // pro compilador ficar feliz
 		try {
 			// Carrega o driver JDBC
-			String driverName = "com.mysql.jdbc.Driver";
+			//String driverName = "com.mysql.jdbc.Driver";
+			String driverName = "com.mysql.cj.jdbc.Driver";
 			Class.forName(driverName);
 			// Configuração da conexão com um banco de dados//
 			// troque por seu ip, senha, user, etc
